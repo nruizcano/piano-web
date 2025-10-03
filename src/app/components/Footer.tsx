@@ -10,7 +10,7 @@ interface LinkProps {
 const SocialLinks: LinkProps[] = [
   {
     title: "YouTube",
-    url: "https://www.youtube.com/channel/UCr88KAGxSx1xzGyY4LODc9w",
+    url: "https://www.youtube.com/@nerearuizcano",
     icon: "/socials/youtube.svg",
   },
   {
@@ -36,9 +36,15 @@ export default function Footer() {
       <p className="text-[#ddd]">© 2025 Nerea Ruiz Cano</p>
       <ul className="flex flex-wrap items-center gap-4">
         {SocialLinks.map((link) => (
-          <li key={link.url}>
+          <li key={link.title}>
             <Link href={link.url} target="_blank" rel="noopener noreferrer">
-              <Image src={link.icon} alt={link.url} width={24} height={24} />
+              <Image
+                src={link.icon}
+                alt={link.url}
+                height={24}
+                width={24} // Required by Next.js but ignore with w-auto in Tailwind CSS
+                className="h-6 w-auto"
+              />
             </Link>
           </li>
         ))}

@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimsonPro.variable} ${crimsonText.variable} antialiased grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16`}
+        className={`${crimsonPro.className} ${crimsonText.className} antialiased grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16`}
       >
         <Header />
         <main className="row-start-2 flex flex-col items-center sm:items-start p-8 sm:p-20">
