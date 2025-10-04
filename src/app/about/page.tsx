@@ -183,7 +183,7 @@ export default function About() {
           of the best decisions I’ve made. Even though I don’t have a huge
           audience, the small, supportive community that has formed is
           wonderful. Receiving comments on almost every video from people who
-          enjoyed my performance is incredibly heartwarming.
+          enjoyed my performance is incredibly heartwarming 🩵
         </p>
         <p>
           Sharing my piano journey has rekindled my passion and made every

@@ -56,7 +56,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-w-full place-items-center pt-8 sm:pt-16">
+    <div className="flex flex-col min-w-full place-items-center pt-8 sm:pt-0">
       <h1 className="text-4xl sm:text-6xl mb-8 sm:mb-16">Send me an email</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}

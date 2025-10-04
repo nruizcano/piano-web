@@ -2,7 +2,7 @@ export enum NavLinks {
     HOME = "HOME",
     ABOUT = "ABOUT",
     SHEET_MUSIC = "SHEET_MUSIC",
-    GEAR = "GEAR",
+    EQUIPMENT = "EQUIPMENT",
     SOCIALS = "SOCIALS",
     CONTACT = "CONTACT",
 }
@@ -25,9 +25,9 @@ export const NavLinksInfo: Record<NavLinks, Props> = {
         title: "Sheet Music",
         href: "/sheet-music",
     },
-    [NavLinks.GEAR]: {
-        title: "Gear",
-        href: "/gear",
+    [NavLinks.EQUIPMENT]: {
+        title: "Equipment",
+        href: "/equipment",
     },
     [NavLinks.SOCIALS]: {
         title: "Socials",

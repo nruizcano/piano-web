@@ -3,7 +3,7 @@ import HomeInfoCards from "@/app/components/HomeInfoCards";
 import LatestYoutubeVideo from "@/app/components/LatestYouTubeVideo";
 
 export default async function Home() {
-  return (
+  return ( // TODO: Improve InfoCards responsiveness
     <div className="flex flex-col gap-18 min-w-full">
       <section id="banner">
         <Banner />

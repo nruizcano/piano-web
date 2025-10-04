@@ -16,9 +16,8 @@ const crimsonText = Crimson_Text({
 });
 
 export const metadata: Metadata = {
-  // TODO: Update metadata
   title: "Nerea Ruiz Cano | Piano",
-  description: "A website for Nerea Ruiz Cano's piano covers and information.",
+  description: "Nerea Ruiz Cano's piano website featuring her piano covers, sheet music, musical insights, equipment, contact information, and social links."
 };
 
 export default function RootLayout({
