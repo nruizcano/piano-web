@@ -4,38 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-
-interface LinkProps {
-  title: string;
-  href: string;
-}
-
-const NavBarLinks: LinkProps[] = [
-  {
-    title: "HOME",
-    href: "/",
-  },
-  {
-    title: "ABOUT",
-    href: "/about",
-  },
-  {
-    title: "SHEET MUSIC",
-    href: "/sheet-music",
-  },
-  {
-    title: "GEAR",
-    href: "/gear",
-  },
-  {
-    title: "SOCIALS",
-    href: "/socials",
-  },
-  {
-    title: "CONTACT",
-    href: "/contact",
-  },
-];
+import { NavLinksInfo } from "@/app/models/NavLinks";
 
 export default function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -70,8 +39,8 @@ export default function NavBar() {
             isMobile ? "flex-col items-end" : "flex-row items-center gap-8"
           } relative`}
         >
-          {NavBarLinks.map((link) => (
-            <li key={link.href}>
+          {Object.values(NavLinksInfo).map((link) => (
+            <li key={link.title}>
               <Link
                 href={link.href}
                 className={`font-semibold ${
@@ -80,7 +49,7 @@ export default function NavBar() {
                     : ""
                 }`}
               >
-                {link.title}
+                {link.title.toUpperCase()}
               </Link>
             </li>
           ))}
