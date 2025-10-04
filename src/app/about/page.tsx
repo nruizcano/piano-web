@@ -17,7 +17,7 @@ function SocialLink({ social }: { social: Socials }) {
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-12 min-w-full pt-16">
+    <div className="flex flex-col gap-12 min-w-full pt-8 sm:pt-16">
       <section id="background">
         <h2>Background</h2>
         <hr />

@@ -27,10 +27,6 @@ hr {
   width: 100%;
 }
 
-h1 {
-  font-weight: 600;
-}
-
 h2 {
   font-size: 2rem;
 }
@@ -43,10 +39,31 @@ p {
   font-size: 1.125rem;
 }
 
+input,
+textarea {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  /* TODO: Add shadow */
+}
+
+form > div > span {
+  display: flex;
+  flex-direction: row;
+  wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
 .link {
   color: var(--accent);
 }
 
 .link:hover {
   text-decoration: underline;
+}
+
+.errMsg {
+  color: #fb2c36;
 }
