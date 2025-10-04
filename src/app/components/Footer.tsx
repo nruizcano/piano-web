@@ -1,46 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-
-interface LinkProps {
-  title: string;
-  url: string;
-  icon: string;
-}
-
-const SocialLinks: LinkProps[] = [
-  {
-    title: "YouTube",
-    url: "https://www.youtube.com/@nerearuizcano",
-    icon: "/socials/youtube.svg",
-  },
-  {
-    title: "Instagram",
-    url: "https://www.instagram.com/nerea.rc88",
-    icon: "/socials/instagram.svg",
-  },
-  {
-    title: "MuseScore",
-    url: "https://musescore.com/user/63972640",
-    icon: "/socials/musescore.svg",
-  },
-  {
-    title: "Google Drive",
-    url: "https://drive.google.com/drive/folders/1QtDkUT90EoXOAhGXZli3yW7wP0K8IqGE",
-    icon: "/socials/googledrive.svg",
-  },
-];
+import { SocialsInfo } from "@/app/models/Socials";
 
 export default function Footer() {
   return (
     <footer className="row-start-3 flex flex-col min-w-full p-6 gap-4 items-center justify-center bg-[var(--background-dark)]">
       <p className="text-[#ddd]">© 2025 Nerea Ruiz Cano</p>
       <ul className="flex flex-wrap items-center gap-4">
-        {SocialLinks.map((link) => (
-          <li key={link.title}>
-            <Link href={link.url} target="_blank" rel="noopener noreferrer">
+        {Object.values(SocialsInfo).map((social) => (
+          <li key={social.title}>
+            <Link href={social.url} target="_blank" rel="noopener noreferrer">
               <Image
-                src={link.icon}
-                alt={link.url}
+                src={social.icon}
+                alt={social.url}
                 height={24}
                 width={24} // Required by Next.js but ignore with w-auto in Tailwind CSS
                 className="h-6 w-auto"

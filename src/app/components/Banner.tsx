@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function Banner() {
+  // TODO: Add a background image and change subtitle text
   return (
     <div className="relative group">
       <div className="relative">

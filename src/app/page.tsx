@@ -22,7 +22,7 @@ export default async function Home() {
         id="latest-video"
         className="flex flex-col items-center justify-center"
       >
-        <h2 className="text-3xl">Latest video</h2>
+        <h2 className="text-3xl mb-6">Latest video</h2>
         <iframe
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"

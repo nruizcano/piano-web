@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -39,6 +40,7 @@ const NavBarLinks: LinkProps[] = [
 export default function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,13 +56,6 @@ export default function NavBar() {
       setIsMenuOpen(true);
     }
   }, [isMobile]);
-
-  const isCurrentPage = (href: string) => {
-    if (typeof window !== "undefined") {
-      return window.location.pathname === href;
-    }
-    return false;
-  };
 
   return (
     <nav className="flex flex-col items-end justify-end">
@@ -80,7 +75,7 @@ export default function NavBar() {
               <Link
                 href={link.href}
                 className={`font-semibold ${
-                  !isCurrentPage(link.href)
+                  pathname !== link.href
                     ? "text-[var(--foreground-secondary)]"
                     : ""
                 }`}
