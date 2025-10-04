@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --font-crimson-pro: 'Crimson Pro', serif;
-  --font-crimson-text: 'Crimson Text', serif;
   --background: #ffffff;
-  --background-secondary: #e5e5e5;
+  --background-secondary: #eee;
   --background-dark: #14213d;
   --foreground: #000000;
+  --foreground-secondary: #555;
   --accent: #fca311;
 }
 
@@ -20,4 +19,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+hr {
+  border-color: var(--accent);
+  border-width: 1px;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.125rem;
 }

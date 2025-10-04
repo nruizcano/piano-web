@@ -17,7 +17,7 @@ const crimsonText = Crimson_Text({
 
 export const metadata: Metadata = {
   // TODO: Update metadata
-  title: "Nerea's Piano Covers",
+  title: "Nerea Ruiz Cano | Piano",
   description: "A website for Nerea Ruiz Cano's piano covers and information.",
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${crimsonPro.className} ${crimsonText.className} antialiased grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16`}
       >
         <Header />
-        <main className="row-start-2 flex flex-col items-center sm:items-start p-8 sm:p-20">
+        <main className="row-start-2 flex flex-col items-start px-8 sm:px-20 w-full max-w-7xl">
           {children}
         </main>
         <Footer />

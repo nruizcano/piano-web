@@ -42,7 +42,7 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
+      setIsMobile(window.innerWidth < 768);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -55,9 +55,15 @@ export default function NavBar() {
     }
   }, [isMobile]);
 
+  const isCurrentPage = (href: string) => {
+    if (typeof window !== "undefined") {
+      return window.location.pathname === href;
+    }
+    return false;
+  };
+
   return (
-    <nav className="flex flex-col items-end justify-end
-    ">
+    <nav className="flex flex-col items-end justify-end">
       {isMobile && (
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <Image src="/burger-menu.svg" alt="Menu" width={24} height={24} />
@@ -71,7 +77,14 @@ export default function NavBar() {
         >
           {NavBarLinks.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className="font-semibold text-sm">
+              <Link
+                href={link.href}
+                className={`font-semibold ${
+                  !isCurrentPage(link.href)
+                    ? "text-[var(--foreground-secondary)]"
+                    : ""
+                }`}
+              >
                 {link.title}
               </Link>
             </li>
