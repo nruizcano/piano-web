@@ -56,12 +56,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-w-full place-items-center pt-8 2xl:pt-0">
-      <h1 className="text-4xl sm:text-5xl mb-8 sm:mb-16">Send me an email</h1>
+    <div className="flex flex-col min-w-full place-items-center pt-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-full md:max-w-lg items-center gap-4"
+        className="flex flex-col w-full md:max-w-lg items-center mb-10"
       >
+        <legend className="text-4xl sm:text-5xl text-center mb-8 sm:mb-16">Send me an email</legend>
         <fieldset className="flex flex-col gap-8 w-full">
           <div>
             <label htmlFor="from">From</label>
@@ -90,12 +90,12 @@ export default function ContactPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-20 self-end hover:shadow-md"
+          className="w-20 self-end hover:shadow-md mt-6"
         >
           {isSubmitting ? "SENDING..." : "SEND"}
         </button>
       </form>
-      <p className="mt-12 text-center">
+      <p className="text-center">
         You can also reach me directly via email at{" "}
         <Link href={`mailto:${toEmail}`} className="link">
           {toEmail}

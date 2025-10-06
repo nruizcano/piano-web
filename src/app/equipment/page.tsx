@@ -7,8 +7,8 @@ export default function Equipment() {
   return (
     <div className="flex flex-col gap-24 min-w-full pt-8 sm:pt-16">
       <section id="disclaimer">
-        <h1 className="text-5xl sm:text-6xl mb-8">Equipment</h1>
-        <span className="flex flex-col max-w-xl gap-2">
+        <h1>Equipment</h1>
+        <div className="max-w-xl">
           <p>
             Here’s the equipment I currently use to create my videos. I’ve used
             different setups in the past, but this is my up-to-date list.
@@ -18,7 +18,7 @@ export default function Equipment() {
             Everything here was purchased with my own money and chosen based on
             my preferences.
           </p>
-        </span>
+        </div>
       </section>
       <section id="piano">
         <h2>Roland FP-30X</h2>

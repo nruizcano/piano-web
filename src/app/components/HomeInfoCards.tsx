@@ -34,17 +34,28 @@ const InfoCards: InfoCardProps[] = [
 ];
 
 export default function HomeInfoCards() {
-  return InfoCards.map((item) => (
-    <article
-      key={item.navLink.title}
-      className="bg-[var(--background-secondary)] grid grid-rows-[80px_66px_90px_auto] lg:grid-rows-[80px_66px_130px_auto] py-9 px-7 text-center justify-items-center"
-    >
-      <Image src={item.icon} alt={item.navLink.title} width={64} height={64} />
-      <h3>{item.navLink.title}</h3>
-      <p className="text-[var(--foreground-secondary)]">{item.description}</p>
-      <button>
-        <Link href={item.navLink.href}>{item.button}</Link>
-      </button>
-    </article>
-  ));
+  return (
+    <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8`}>
+      {InfoCards.map((item) => (
+        <article
+          key={item.navLink.title}
+          className="bg-[var(--background-secondary)] grid grid-rows-[80px_66px_90px_auto] lg:grid-rows-[80px_66px_130px_auto] py-9 px-7 text-center justify-items-center"
+        >
+          <Image
+            src={item.icon}
+            alt={item.navLink.title}
+            width={64}
+            height={64}
+          />
+          <h3>{item.navLink.title}</h3>
+          <p className="text-[var(--foreground-secondary)]">
+            {item.description}
+          </p>
+          <button>
+            <Link href={item.navLink.href}>{item.button}</Link>
+          </button>
+        </article>
+      ))}
+    </div>
+  );
 }

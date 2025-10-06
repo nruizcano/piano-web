@@ -1,13 +1,4 @@
-section {
-    display: flex;
-    flex-direction: column;
-}
-
 hr {
     margin-top: 0.25rem;
-    margin-bottom: 0.75rem;
-}
-
-p {
-    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
 }
