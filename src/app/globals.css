@@ -39,20 +39,29 @@ p {
   font-size: 1.125rem;
 }
 
+button {
+  cursor: pointer;
+  min-width: fit-content;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  line-height: 1.428571;
+  background-color: var(--accent);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  filter: brightness(1.15);
+}
+
 input,
 textarea {
   background: var(--background-secondary);
   padding: 1rem;
   border: none;
   width: 100%;
-}
-
-form > div > span {
-  display: flex;
-  flex-direction: row;
-  wrap: wrap;
-  align-items: center;
-  gap: 1rem;
 }
 
 .link {

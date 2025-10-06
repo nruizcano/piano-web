@@ -56,41 +56,41 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-w-full place-items-center pt-8 sm:pt-0">
-      <h1 className="text-4xl sm:text-6xl mb-8 sm:mb-16">Send me an email</h1>
+    <div className="flex flex-col min-w-full place-items-center pt-8 2xl:pt-0">
+      <h1 className="text-4xl sm:text-5xl mb-8 sm:mb-16">Send me an email</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-8 w-full lg:max-w-lg"
+        className="flex flex-col w-full md:max-w-lg items-center gap-4"
       >
-        <div>
-          <span>
+        <fieldset className="flex flex-col gap-8 w-full">
+          <div>
             <label htmlFor="from">From</label>
+            <input type="email" id="from" {...register("from")} />
             {errors.from && <p className="errMsg">{errors.from.message}</p>}
-          </span>
-          <input type="email" id="from" {...register("from")} />
-        </div>
-        <div>
-          <span>
+          </div>
+          <div>
             <label htmlFor="subject">Subject</label>
+            <input type="text" id="subject" {...register("subject")} />
             {errors.subject && (
               <p className="errMsg">{errors.subject.message}</p>
             )}
-          </span>
-          <input type="text" id="subject" {...register("subject")} />
-        </div>
-        <div>
-          <span>
+          </div>
+          <div>
             <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              className="min-h-40"
+              {...register("message")}
+            />
             {errors.message && (
               <p className="errMsg">{errors.message.message}</p>
             )}
-          </span>
-          <textarea id="message" className="min-h-40" {...register("message")} />
-        </div>
+          </div>
+        </fieldset>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-[var(--accent)] px-4 py-2 rounded-xs min-w-fit w-20 text-sm cursor-pointer self-end"
+          className="w-20 self-end hover:shadow-md"
         >
           {isSubmitting ? "SENDING..." : "SEND"}
         </button>

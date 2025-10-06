@@ -3,7 +3,7 @@ import Link from "next/link";
 import { NavLinks, NavLinksInfo } from "@/app/models/NavLinks";
 
 interface InfoCardProps {
-  navLink: typeof NavLinksInfo[keyof typeof NavLinks];
+  navLink: (typeof NavLinksInfo)[keyof typeof NavLinks];
   description: string;
   icon: string;
   button: string;
@@ -42,12 +42,9 @@ export default function HomeInfoCards() {
       <Image src={item.icon} alt={item.navLink.title} width={64} height={64} />
       <h3>{item.navLink.title}</h3>
       <p className="text-[var(--foreground-secondary)]">{item.description}</p>
-      <Link
-        href={item.navLink.href}
-        className="bg-[var(--accent)] text-sm items-center w-fit px-4 py-2 rounded-sm"
-      >
-        {item.button}
-      </Link>
+      <button>
+        <Link href={item.navLink.href}>{item.button}</Link>
+      </button>
     </article>
   ));
 }

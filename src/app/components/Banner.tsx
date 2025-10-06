@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 export default function Banner() {
-  // TODO: Add a background image
+  // TODO: Change background image and improve responsiveness
   return (
     <div className="relative group">
       <div className="relative">
         <Image
-          src="/banner"
+          src="/banner.webp"
           alt="Banner"
           width={1920}
           height={1080}

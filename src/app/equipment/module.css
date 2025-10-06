@@ -1,8 +1,27 @@
 hr {
-    margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 2rem;
 }
 
-p {
-    margin-top: 0.75rem;
+section > article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  section > article {
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap: 2.75rem;
+  }
+}
+
+section > article > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }

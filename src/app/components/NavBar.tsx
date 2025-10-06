@@ -29,7 +29,7 @@ export default function NavBar() {
   return (
     <nav className="flex flex-col items-end justify-end">
       {isMobile && (
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="!bg-transparent !p-0">
           <Image src="/burger-menu.svg" alt="Menu" width={24} height={24} />
         </button>
       )}
