@@ -21,6 +21,7 @@ export default function LatestYoutubeVideo() {
     <iframe
       src={`https://www.youtube.com/embed/${videoId}`}
       title="YouTube video player"
+      aria-label="Latest YouTube video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       className="w-full h-auto aspect-video"

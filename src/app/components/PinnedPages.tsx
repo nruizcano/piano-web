@@ -2,43 +2,45 @@ import Image from "next/image";
 import Link from "next/link";
 import { NavLinks, NavLinksInfo } from "@/app/models/NavLinks";
 
-interface InfoCardProps {
+interface PinnedPagesProps {
   navLink: (typeof NavLinksInfo)[keyof typeof NavLinks];
   description: string;
   icon: string;
   button: string;
 }
 
-const InfoCards: InfoCardProps[] = [
+const PinnedPages: PinnedPagesProps[] = [
   {
     navLink: NavLinksInfo.ABOUT,
     description:
       "Learn more about my journey — how I started playing piano and how I came to share this passion with others.",
     icon: "/person.svg",
-    button: "LEARN MORE",
+    button: "Learn more",
   },
   {
     navLink: NavLinksInfo.SOCIALS,
     description:
       "Explore where you can find my content across different platforms and learn what I share on each one.",
     icon: "/globe.svg",
-    button: "CHECK THEM OUT",
+    button: "Check them out",
   },
   {
     navLink: NavLinksInfo.CONTACT,
     description:
       "Reach out with your questions, ideas, or just to say hi — I’d love to hear from you.",
     icon: "/send.svg",
-    button: "GET IN TOUCH",
+    button: "Get in touch",
   },
 ];
 
 export default function HomeInfoCards() {
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8`}>
-      {InfoCards.map((item) => (
+    // TODO: Fix the grid layout
+    <div id="pinned-pages" className={`grid grid-cols-1 lg:grid-cols-3 gap-8`}>
+      {PinnedPages.map((item) => (
         <article
           key={item.navLink.title}
+          aria-label={item.navLink.title + ` page`}
           className="bg-[var(--background-secondary)] grid grid-rows-[80px_66px_90px_auto] lg:grid-rows-[80px_66px_130px_auto] py-9 px-7 text-center justify-items-center"
         >
           <Image
@@ -52,7 +54,7 @@ export default function HomeInfoCards() {
             {item.description}
           </p>
           <button>
-            <Link href={item.navLink.href}>{item.button}</Link>
+            <Link href={item.navLink.href}>{item.button.toUpperCase()}</Link>
           </button>
         </article>
       ))}

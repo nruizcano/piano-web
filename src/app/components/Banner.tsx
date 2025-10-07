@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Banner() {
   // TODO: Change background image
   return (
-    <div className="relative group">
+    <div id="banner" className="relative group">
       <div className="relative">
         <Image
           src="/banner.webp"

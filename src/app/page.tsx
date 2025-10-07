@@ -1,17 +1,13 @@
 import Banner from "@/app/components/Banner";
-import HomeInfoCards from "@/app/components/HomeInfoCards";
+import PinnedPages from "@/app/components/PinnedPages";
 import LatestYoutubeVideo from "@/app/components/LatestYouTubeVideo";
 
 export default async function Home() {
   return (
     <div className="flex flex-col gap-18 min-w-full">
-      <section id="banner">
-        <Banner />
-      </section>
+      <Banner />
       <hr />
-      <section id="info-cards">
-        <HomeInfoCards />
-      </section>
+      <PinnedPages />
       <hr />
       <section
         id="latest-video"
