@@ -63,6 +63,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.1s ease-in-out;
 }
 
 button:hover {
@@ -91,4 +92,18 @@ textarea {
 
 .shadow-custom {
   filter: drop-shadow(-2px 4px 2px color-mix(in srgb, var(--background-dark) 35%, transparent));
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 100%;
+  animation: gradient 5s linear infinite;
 }
