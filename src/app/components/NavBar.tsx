@@ -5,38 +5,31 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { NavLinksInfo } from "@/app/models/NavLinks";
+import { useScreenBreakpoint } from "@/app/hooks/useScreenBreakpoint";
 
 export default function NavBar() {
-  const [isMobile, setIsMobile] = useState(false);
+  const isSmallScreen = useScreenBreakpoint(768);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile) {
-      setIsMenuOpen(true);
-    }
-  }, [isMobile]);
+    if (!isSmallScreen) setIsMenuOpen(true);
+  }, [isSmallScreen]);
 
   return (
     <nav className="flex flex-col items-end justify-end">
-      {isMobile && (
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="!bg-transparent !p-0">
+      {!isSmallScreen && (
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="!bg-transparent !p-0"
+        >
           <Image src="/burger-menu.svg" alt="Menu" width={24} height={24} />
         </button>
       )}
       {isMenuOpen && (
         <ul
           className={`flex ${
-            isMobile ? "flex-col items-end" : "flex-row items-center gap-8"
+            isSmallScreen ? "flex-row items-center gap-8" : "flex-col items-end"
           } relative`}
         >
           {Object.values(NavLinksInfo).map((link) => (

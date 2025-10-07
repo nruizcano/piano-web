@@ -120,7 +120,7 @@ export default function Equipment() {
               rel="noopener noreferrer"
               className="link"
             >
-              MuseScore
+              {SocialsInfo.MUSESCORE.name}
             </Link>{" "}
             platform, where I publish my sheet music (along with a shared{" "}
             <Link
@@ -129,7 +129,7 @@ export default function Equipment() {
               rel="noopener noreferrer"
               className="link"
             >
-              Google Drive folder
+              {SocialsInfo.GOOGLE_DRIVE.name} folder
             </Link>
             ).
           </p>

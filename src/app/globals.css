@@ -86,3 +86,7 @@ textarea {
 .errMsg {
   color: #fb2c36;
 }
+
+.shadow-custom {
+  filter: drop-shadow(-2px 4px 2px color-mix(in srgb, var(--background-dark) 35%, transparent));
+}

@@ -61,7 +61,9 @@ export default function ContactPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-full md:max-w-lg items-center mb-10"
       >
-        <legend className="text-4xl sm:text-5xl text-center mb-8 sm:mb-16">Send me an email</legend>
+        <legend className="text-4xl sm:text-5xl text-center mb-8 sm:mb-16">
+          Send me an email
+        </legend>
         <fieldset className="flex flex-col gap-8 w-full">
           <div>
             <label htmlFor="from">From</label>
@@ -102,7 +104,7 @@ export default function ContactPage() {
         </Link>
         .
       </p>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={5000} />
     </div>
   );
 }

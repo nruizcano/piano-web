@@ -8,11 +8,11 @@ export default function Footer() {
       <p className="text-[#ddd]">© 2025 Nerea Ruiz Cano</p>
       <ul className="flex flex-wrap items-center gap-4">
         {Object.values(SocialsInfo).map((social) => (
-          <li key={social.title}>
+          <li key={social.name}>
             <Link href={social.url} target="_blank" rel="noopener noreferrer">
               <Image
                 src={social.icon}
-                alt={social.url}
+                alt={social.name}
                 height={24}
                 width={24} // Required by Next.js but ignore with w-auto in Tailwind CSS
                 className="h-6 w-auto"

@@ -10,7 +10,7 @@ function SocialLink({ social }: { social: Socials }) {
       rel="noopener noreferrer"
       className="link"
     >
-      {SocialsInfo[social].title}
+      {SocialsInfo[social].name}
     </Link>
   );
 }
