@@ -5,13 +5,13 @@ export enum Difficulty {
 }
 
 export interface SheetMusic {
-    id: string;
-    title: string;
-    artist: string;
-    composer?: string;
-    description?: string;
-    difficulty?: Difficulty;
-    file: string;
-    preview?: string;
-    video?: string;
+  _id: string;
+  title: string;
+  artist: string;
+  composer?: string;
+  description?: string;
+  difficulty?: Difficulty;
+  file: string;
+  preview?: string;
+  video?: string;
 }

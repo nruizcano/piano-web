@@ -17,9 +17,9 @@ export async function GET() {
     );
 
     if (!response.ok) {
-      const errorText = (await response.text()).slice(0, 200).replace(/\n/g, " ");
+      const errMsg = await response.text();
       return NextResponse.json(
-        { error: `YouTube API error: ${response.status} ${errorText}` },
+        { error: errMsg },
         { status: response.status }
       );
     }
@@ -32,6 +32,6 @@ export async function GET() {
     return NextResponse.json({ videoId: data.items[0].id.videoId });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: `Failed to fetch latest video: ${message}` }, { status: 500 });
   }
 }

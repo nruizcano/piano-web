@@ -1,54 +1,25 @@
-import Image from "next/image";
-import { Difficulty, SheetMusic } from "@/app/models/SheetMusic";
-import DifficultyFlags from "@/app/components/DifficultyFlags";
+"use client";
 
-const sheetMusic: SheetMusic[] = [
-  {
-    id: "1",
-    title: "The Blues",
-    artist: "The Beatles",
-    composer: "John Lennon",
-    description: "A classic blues song by The Beatles.",
-    difficulty: Difficulty.BEGINNER,
-    file: "the-blues.pdf",
-    preview: "/file.svg",
-    video: "/sheet-music/the-blues.mp4",
-  },
-  {
-    id: "2",
-    title: "The Beatles",
-    artist: "The Beatles",
-    composer: "John Lennon",
-    description: "A classic song by The Beatles.",
-    difficulty: Difficulty.INTERMEDIATE,
-    file: "the-beatles.pdf",
-    preview: "/file.svg",
-    video: "/sheet-music/the-beatles.mp4",
-  },
-  {
-    id: "3",
-    title: "The Rolling Stones",
-    artist: "The Rolling Stones",
-    composer: "Mick Jagger",
-    description: "A classic rock song by The Rolling Stones.",
-    difficulty: Difficulty.ADVANCED,
-    file: "the-rolling-stones.pdf",
-    preview: "/file.svg",
-    video: "/sheet-music/the-rolling-stones.mp4",
-  },
-  {
-    id: "4",
-    title: "The Beatles",
-    artist: "The Beatles",
-    composer: "John Lennon",
-    description: "A classic song by The Beatles.",
-    file: "the-beatles.pdf",
-    preview: "/file.svg",
-    video: "/sheet-music/the-beatles.mp4",
-  },
-];
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { SheetMusic } from "@/app/models/SheetMusic";
+import DifficultyFlags from "@/app/components/DifficultyFlags";
+import LoadingSpinner from "@/app/components/LoadingSpinner";
 
 export default function SheetMusicPage() {
+  const [sheetMusic, setSheetMusic] = useState<SheetMusic[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/sheet-music")
+      .then((res) => res.json() as Promise<SheetMusic[]>)
+      .then(setSheetMusic)
+      .finally(() => setIsLoading(false))
+      .catch(console.error);
+  }, [setIsLoading]);
+
+  console.log(sheetMusic.length);
+
   return (
     <div className="flex flex-col min-w-full pt-8 sm:pt-16">
       <h1>Sheet music</h1>
@@ -64,27 +35,34 @@ export default function SheetMusicPage() {
           with you.
         </p>
       </section>
-      <hr className="!my-24" /> 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-16 bg-[var(--background-secondary)]">
-        {sheetMusic.map((sheetMusic) => ( // TODO: Same row elems' height should be equal
-          <li key={sheetMusic.id}>
-            <article
-              aria-label={sheetMusic.title + ` sheet music`}
-              className="flex flex-col items-center shadow-md px-8 py-10 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100"
-            >
-              <Image
-                src={sheetMusic.preview ?? "/file.svg"} // TODO: Add 'no preview available' image
-                alt={sheetMusic.title}
-                width={120}
-                height={120}
-              />
-              <h3 className="mt-6">{sheetMusic.title}</h3>
-              <h4 className="text-lg mb-8">{sheetMusic.artist}</h4>
-              <DifficultyFlags difficulty={sheetMusic.difficulty} />
-            </article>
-          </li>
-        ))}
-      </ul>
+      <hr className="!my-24" />
+      <div className="px-8 py-16 bg-[var(--background-secondary)]">
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : sheetMusic.length < 1 ? (
+          <p className="text-center">There are no sheet music available.</p>
+        ) : (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {sheetMusic.map((sheetMusic) => (
+              <li key={sheetMusic._id}>
+                <article
+                  aria-label={sheetMusic.title + ` sheet music`}
+                  className="flex flex-col items-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100"
+                >
+                  <Image
+                    src={sheetMusic.preview ?? "/file.svg"} // TODO: Add 'no preview available' image
+                    alt={sheetMusic.title}
+                    width={400}
+                    height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
+                    className="w-full h-auto"
+                  />
+                  <DifficultyFlags difficulty={sheetMusic.difficulty} />
+                </article>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

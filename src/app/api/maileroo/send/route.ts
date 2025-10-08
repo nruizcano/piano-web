@@ -29,9 +29,9 @@ export async function POST(req: Request) {
     });
 
     if (!response.ok) {
-      const errorText = (await response.text()).slice(0, 200).replace(/\n/g, " ");
+      const errMsg = await response.text();
       return NextResponse.json(
-        { error: `Maileroo API error: ${response.status} ${errorText}` },
+        { error: errMsg },
         { status: response.status }
       );
     }
@@ -40,6 +40,6 @@ export async function POST(req: Request) {
     return NextResponse.json(result);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: `Failed to send email: ${message}` }, { status: 500 });
   }
 }
