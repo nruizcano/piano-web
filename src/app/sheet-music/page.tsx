@@ -18,8 +18,6 @@ export default function SheetMusicPage() {
       .catch(console.error);
   }, [setIsLoading]);
 
-  console.log(sheetMusic.length);
-
   return (
     <div className="flex flex-col min-w-full pt-8 sm:pt-16">
       <h1>Sheet music</h1>
@@ -42,20 +40,36 @@ export default function SheetMusicPage() {
         ) : sheetMusic.length < 1 ? (
           <p className="text-center">There are no sheet music available.</p>
         ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center items-stretch">
             {sheetMusic.map((sheetMusic) => (
-              <li key={sheetMusic._id}>
+              <li key={sheetMusic._id} className="flex">
                 <article
                   aria-label={sheetMusic.title + ` sheet music`}
                   className="flex flex-col items-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100"
                 >
-                  <Image
-                    src={sheetMusic.preview ?? "/file.svg"} // TODO: Add 'no preview available' image
-                    alt={sheetMusic.title}
-                    width={400}
-                    height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
-                    className="w-full h-auto"
-                  />
+                  {sheetMusic.preview ? (
+                    <Image
+                      src={sheetMusic.preview}
+                      alt={sheetMusic.title}
+                      width={400}
+                      height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
+                      className="w-full h-auto"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-between h-full mb-6 text-center">
+                      <Image
+                        src="/no-image.svg"
+                        alt={sheetMusic.title}
+                        width={400}
+                        height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
+                        className="w-4/5 h-auto mt-6"
+                      />
+                      <div>
+                        <h2>{sheetMusic.title}</h2>
+                        <h3>{sheetMusic.artist}</h3>
+                      </div>
+                    </div>
+                  )}
                   <DifficultyFlags difficulty={sheetMusic.difficulty} />
                 </article>
               </li>
