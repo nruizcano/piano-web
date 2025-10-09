@@ -1,0 +1,7 @@
+input,
+textarea {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border: none;
+  width: 100%;
+}

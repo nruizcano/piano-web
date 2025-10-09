@@ -17,10 +17,11 @@ export default function NavBar() {
   }, [isSmallScreen]);
 
   return (
-    <nav className="flex flex-col items-end justify-end">
+    <nav id="nav-bar-page-menu" className="flex flex-col items-end justify-end">
       {!isSmallScreen && (
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation menu"
           className="!bg-transparent !p-0"
         >
           <Image src="/burger-menu.svg" alt="Menu" width={24} height={24} />
@@ -33,7 +34,7 @@ export default function NavBar() {
           } relative`}
         >
           {Object.values(NavLinksInfo).map((link) => (
-            <li key={link.title}>
+            <li key={link.title} id={link.title.toLowerCase().replaceAll(" ", "-")}>
               <Link
                 href={link.href}
                 className={`font-semibold ${

@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
+import "@/app/contact/module.css";
 
 const emailSchema = z.object({
   from: z.email("Please enter a valid email address."),
@@ -47,7 +48,7 @@ export default function ContactPage() {
         toast.success("Email sent successfully!");
         reset();
       } else {
-        toast.error(result.error);
+        console.error(response.status, result.error);
         toast.error("Failed to send email. Please try again.");
       }
     } catch (error) {
@@ -95,7 +96,7 @@ export default function ContactPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-20 self-end hover:shadow-md mt-6"
+          className="w-20 self-end mt-6"
         >
           {isSubmitting ? "SENDING..." : "SEND"}
         </button>

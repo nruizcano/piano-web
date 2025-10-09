@@ -21,6 +21,7 @@ export default function SocialsPage() {
         {Object.values(SocialsInfo).map((social) => (
           <li
             key={social.name}
+            id={social.name.toLowerCase().replaceAll(" ", "-")}
             className={`gap-4 grid ${
               isLargeScreen ? "grid-cols-[80px_1fr]" : "grid-cols-[50px_1fr]"
             }`}
@@ -51,6 +52,7 @@ export default function SocialsPage() {
                 </Link>
                 <button
                   onClick={() => copyToClipboard(social.url)}
+                  aria-label="Copy to clipboard"
                   className="!p-[6px] !rounded-md"
                 >
                   <Image

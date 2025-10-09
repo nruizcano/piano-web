@@ -40,7 +40,7 @@ export default function HomeInfoCards() {
       {PinnedPages.map((item) => (
         <article
           key={item.navLink.title}
-          aria-label={item.navLink.title + ` page`}
+          id={`${item.navLink.title.toLowerCase().replaceAll(" ", "-")}-pinned-page`}
           className="bg-[var(--background-secondary)] grid grid-rows-[80px_66px_90px_auto] lg:grid-rows-[80px_66px_130px_auto] py-9 px-7 text-center justify-items-center"
         >
           <Image
@@ -53,7 +53,7 @@ export default function HomeInfoCards() {
           <p className="text-[var(--foreground-secondary)]">
             {item.description}
           </p>
-          <button>
+          <button aria-label="Navigate to page">
             <Link href={item.navLink.href}>{item.button.toUpperCase()}</Link>
           </button>
         </article>

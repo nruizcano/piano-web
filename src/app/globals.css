@@ -70,12 +70,14 @@ button:hover {
   filter: brightness(1.15);
 }
 
-input,
-textarea {
-  background: var(--background-secondary);
-  padding: 1rem;
-  border: none;
-  width: 100%;
+.frame-big-padding {
+  padding-top: 2rem;
+}
+
+@media (width >= 40rem) {
+  .frame-big-padding {
+    padding-top: 4rem;
+  }
 }
 
 .link {
@@ -86,12 +88,24 @@ textarea {
   text-decoration: underline;
 }
 
+.page-intro {
+  max-width: 36rem;
+  margin-bottom: 6rem;
+}
+
+.disclaimer {
+  color: var(--foreground-secondary);
+  font-style: italic;
+}
+
 .errMsg {
   color: #fb2c36;
 }
 
 .shadow-custom {
-  filter: drop-shadow(-2px 4px 2px color-mix(in srgb, var(--background-dark) 35%, transparent));
+  filter: drop-shadow(
+    -2px 4px 2px color-mix(in srgb, var(--background-dark) 35%, transparent)
+  );
 }
 
 @keyframes gradient {

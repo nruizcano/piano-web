@@ -5,22 +5,22 @@ import "@/app/equipment/module.css";
 
 export default function Equipment() {
   return (
-    <div className="flex flex-col min-w-full pt-8 sm:pt-16">
+    <div className="flex flex-col min-w-full frame-big-padding">
       <h1>Equipment</h1>
-      <section className="max-w-xl">
+      <section id="page-info" className="page-intro">
         <p>
           Here’s the equipment I currently use to create my videos. I’ve used
           different setups in the past, but this is my up-to-date list.
         </p>
-        <p className="italic text-[var(--foreground-secondary)]">
+        <p className="disclaimer">
           Disclaimer: I’m not sponsored by any of these brands or products.
           Everything here was purchased with my own money and chosen based on my
           preferences.
         </p>
       </section>
-      <ul className="flex flex-col gap-24 mt-24">
+      <ul id="equipment-list" className="flex flex-col gap-24">
         <li id="piano">
-          <article aria-label="Roland FP-30X">
+          <article id="roland-fp30x">
             <h2>Roland FP-30X</h2>
             <h3>Piano</h3>
             <hr />
@@ -67,7 +67,7 @@ export default function Equipment() {
           </article>
         </li>
         <li id="headphones">
-          <article aria-label="Audio Technica ATH-M50X">
+          <article id="audio-technica-ath-m50x">
             <h2>Audio Technica ATH-M50X</h2>
             <h3>Headphones</h3>
             <hr />
@@ -103,7 +103,7 @@ export default function Equipment() {
           </article>
         </li>
         <li id="sheet-music-editor">
-          <article aria-label="MuseScore Studio">
+          <article id="musescore-studio">
             <h2>MuseScore Studio</h2>
             <h3>Sheet Music Editor</h3>
             <hr />
@@ -142,7 +142,7 @@ export default function Equipment() {
           </article>
         </li>
         <li id="daw">
-          <article aria-label="REAPER">
+          <article id="reaper">
             <h2>REAPER</h2>
             <h3>DAW</h3>
             <hr />
@@ -174,7 +174,7 @@ export default function Equipment() {
           </article>
         </li>
         <li id="camera">
-          <article aria-label="Canon EOS 750D">
+          <article id="canon-eos-750d">
             <h2>Canon EOS 750D</h2>
             <h3>Camera</h3>
             <hr />

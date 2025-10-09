@@ -8,7 +8,11 @@ export default function Footer() {
       <p className="text-[#ddd]">© 2025 Nerea Ruiz Cano</p>
       <ul className="flex flex-wrap items-center gap-4">
         {Object.values(SocialsInfo).map((social) => (
-          <li key={social.name} aria-label={social.name + ` link`}>
+          <li
+            key={social.name}
+            id={social.name.toLowerCase().replaceAll(" ", "-")}
+            aria-label={social.name + ` link`}
+          >
             <Link href={social.url} target="_blank" rel="noopener noreferrer">
               <Image
                 src={social.icon}

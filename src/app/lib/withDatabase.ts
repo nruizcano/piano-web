@@ -11,7 +11,7 @@ export async function withDatabase<T>(
 
     if (!DATABASE_NAME || !SHEET_MUSIC_COLLECTION) {
       return NextResponse.json(
-        { error: "Missing database configuration" },
+        { success: false, error: "Missing database configuration" },
         { status: 500 }
       );
     }
@@ -24,7 +24,7 @@ export async function withDatabase<T>(
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: `Database operation failed: ${message}` },
+      { success: false, error: `Database operation failed: ${message}` },
       { status: 500 }
     );
   }

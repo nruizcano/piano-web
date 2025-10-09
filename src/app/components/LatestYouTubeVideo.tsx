@@ -18,7 +18,7 @@ export default function LatestYoutubeVideo() {
       if (response.ok && data.success && data.videoId) {
         setVideoId(data.videoId);
       } else {
-        console.error(data.error);
+        console.error(response.status, data.error);
       }
     } catch (error) {
       console.error(error);
@@ -33,6 +33,7 @@ export default function LatestYoutubeVideo() {
 
   return (
     <iframe
+      id="latest-youtube-video-iframe"
       src={`https://www.youtube.com/embed/${videoId}`}
       title="YouTube video player"
       aria-label="Latest YouTube video"
