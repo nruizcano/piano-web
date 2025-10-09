@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NavLinks, NavLinksInfo } from "@/app/models/NavLinks";
+import { NavLinks, NavLinksInfo } from "@/app/types/NavLinks";
 
 interface PinnedPagesProps {
   navLink: (typeof NavLinksInfo)[keyof typeof NavLinks];
@@ -35,7 +35,6 @@ const PinnedPages: PinnedPagesProps[] = [
 
 export default function HomeInfoCards() {
   return (
-    // TODO: Fix the grid layout
     <div id="pinned-pages" className={`grid grid-cols-1 lg:grid-cols-3 gap-8`}>
       {PinnedPages.map((item) => (
         <article

@@ -4,7 +4,7 @@ export enum Difficulty {
   ADVANCED = "Advanced",
 }
 
-export interface SheetMusic {
+export type SheetMusic = {
   _id: string;
   title: string;
   artist: string;

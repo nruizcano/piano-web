@@ -7,7 +7,7 @@ export enum NavLinks {
     CONTACT = "CONTACT",
 }
 
-interface Props {
+type Props = {
     title: string;
     href: string;
 }

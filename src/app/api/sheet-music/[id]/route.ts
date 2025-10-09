@@ -3,20 +3,20 @@ import { ObjectId } from "mongodb";
 import { withDatabase } from "@/app/lib/withDatabase";
 
 interface Params {
-    params: { _id: string };
+    params: { id: string };
 }
 
 export async function GET(_req: Request, { params }: Params) {
-    const { _id } = params;
+    const { id } = await params;
 
-    if (!_id) {
+    if (!id) {
         return NextResponse.json({ success: false, error: "Missing sheet music ID" }, { status: 400 });
-    } else if (!ObjectId.isValid(_id)) {
+    } else if (!ObjectId.isValid(id)) {
         return NextResponse.json({ success: false, error: "Invalid sheet music ID" }, { status: 400 });
     }
 
     return withDatabase(async (collection) => {
-        const response = await collection.findOne({ _id: new ObjectId(_id) });
+        const response = await collection.findOne({ _id: new ObjectId(id) });
 
         if (!response) {
             return NextResponse.json({ success: false, error: "Sheet music not found" }, { status: 404 });

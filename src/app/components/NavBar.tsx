@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLinksInfo } from "@/app/models/NavLinks";
+import { NavLinksInfo } from "@/app/types/NavLinks";
 import { useScreenBreakpoint } from "@/app/hooks/useScreenBreakpoint";
 
 export default function NavBar() {

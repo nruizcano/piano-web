@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Socials, SocialsInfo } from "@/app/models/Socials";
+import { Socials, SocialsInfo } from "@/app/types/Socials";
 import "@/app/about/module.css";
 
 function SocialLink({ social }: { social: Socials }) {

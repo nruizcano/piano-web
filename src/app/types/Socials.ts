@@ -5,7 +5,7 @@ export enum Socials {
     GOOGLE_DRIVE = "GOOGLE_DRIVE",
 }
 
-interface Props {
+type Props = {
     name: string;
     url: string;
     icon: string;

@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import Image from "next/image";
-import { SheetMusic } from "@/app/models/SheetMusic";
-import SheetMusicPreview from "@/app/components/SheetMusicPreview";
-import DifficultyFlags from "@/app/components/DifficultyFlags";
+import { SheetMusic } from "@/app/sheet-music/types/SheetMusic";
+import SheetMusicPreview from "@/app/sheet-music/components/SheetMusicPreview";
+import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
 import LoadingSpinner from "@/app/components/LoadingSpinner";
 
 export default function SheetMusicPage() {
@@ -161,7 +162,10 @@ export default function SheetMusicPage() {
                     .replaceAll(" ", "-")}
                   className="flex"
                 >
-                  <article className="flex flex-col items-center text-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100">
+                  <Link
+                    href={`/sheet-music/${sheetMusic._id}`}
+                    className="flex flex-col items-center text-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100"
+                  >
                     <div className="flex flex-grow">
                       <SheetMusicPreview
                         src={sheetMusic.preview}
@@ -172,7 +176,7 @@ export default function SheetMusicPage() {
                     <h3>{sheetMusic.title}</h3>
                     <h4 className="mb-2">{sheetMusic.artist}</h4>
                     <DifficultyFlags difficulty={sheetMusic.difficulty} />
-                  </article>
+                  </Link>
                 </li>
               ))}
             </ul>

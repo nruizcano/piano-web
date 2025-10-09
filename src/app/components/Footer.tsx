@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SocialsInfo } from "@/app/models/Socials";
+import { SocialsInfo } from "@/app/types/Socials";
 
 export default function Footer() {
   return (

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
-import { SocialsInfo } from "@/app/models/Socials";
+import { SocialsInfo } from "@/app/types/Socials";
 import { useScreenBreakpoint } from "@/app/hooks/useScreenBreakpoint";
 
 function copyToClipboard(text: string) {

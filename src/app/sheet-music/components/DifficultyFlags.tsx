@@ -1,4 +1,4 @@
-import { Difficulty } from "@/app/models/SheetMusic";
+import { Difficulty } from "@/app/sheet-music/types/SheetMusic";
 
 export default function DifficultyFlags({
   difficulty,

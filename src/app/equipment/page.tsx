@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SocialsInfo } from "@/app/models/Socials";
+import { SocialsInfo } from "@/app/types/Socials";
 import "@/app/equipment/module.css";
 
 export default function Equipment() {
