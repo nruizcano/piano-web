@@ -6,6 +6,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { SheetMusic } from "@/app/models/SheetMusic";
+import SheetMusicPreview from "@/app/components/SheetMusicPreview";
 import DifficultyFlags from "@/app/components/DifficultyFlags";
 import LoadingSpinner from "@/app/components/LoadingSpinner";
 
@@ -151,7 +152,7 @@ export default function SheetMusicPage() {
           ) : sheetMusic.length < 1 ? (
             <p className="text-center">There are no sheet music available.</p>
           ) : (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center items-stretch">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center items-stretch">
               {sheetMusic.map((sheetMusic) => (
                 <li
                   key={sheetMusic._id}
@@ -160,30 +161,16 @@ export default function SheetMusicPage() {
                     .replaceAll(" ", "-")}
                   className="flex"
                 >
-                  <article className="flex flex-col items-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100">
-                    {sheetMusic.preview ? (
-                      <Image
+                  <article className="flex flex-col items-center text-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100">
+                    <div className="flex flex-grow">
+                      <SheetMusicPreview
                         src={sheetMusic.preview}
-                        alt={sheetMusic.title}
-                        width={400}
-                        height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
-                        className="w-full h-auto"
+                        title={sheetMusic.title}
+                        artist={sheetMusic.artist}
                       />
-                    ) : (
-                      <div className="flex flex-col items-center justify-between h-full mb-6 text-center">
-                        <Image
-                          src="/no-image.svg"
-                          alt={sheetMusic.title}
-                          width={400}
-                          height={400} // Required by Next.js but ignore with h-auto in Tailwind CSS
-                          className="w-4/5 h-auto mt-6"
-                        />
-                        <div>
-                          <h2>{sheetMusic.title}</h2>
-                          <h3>{sheetMusic.artist}</h3>
-                        </div>
-                      </div>
-                    )}
+                    </div>
+                    <h3>{sheetMusic.title}</h3>
+                    <h4 className="mb-2">{sheetMusic.artist}</h4>
                     <DifficultyFlags difficulty={sheetMusic.difficulty} />
                   </article>
                 </li>
