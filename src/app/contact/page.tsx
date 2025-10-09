@@ -29,7 +29,7 @@ export default function ContactPage() {
     resolver: zodResolver(emailSchema),
   });
 
-  const onSubmit = async (data: EmailForm) => {
+  async function onSubmit(data: EmailForm) {
     try {
       const response = await fetch("/api/maileroo/send", {
         method: "POST",
