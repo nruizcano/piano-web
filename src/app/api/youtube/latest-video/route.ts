@@ -7,7 +7,7 @@ export async function GET() {
 
     if (!API_KEY || !CHANNEL_ID) {
       return NextResponse.json(
-        { error: "Missing API configuration" },
+        { success:false, error: "Missing YouTube API configuration" },
         { status: 500 }
       );
     }
@@ -19,19 +19,20 @@ export async function GET() {
     if (!response.ok) {
       const errMsg = await response.text();
       return NextResponse.json(
-        { error: errMsg },
+        { success: false, error: errMsg },
         { status: response.status }
       );
     }
 
     const data = await response.json();
+
     if (!data.items || data.items.length === 0) {
-      return NextResponse.json({ error: "No video found" }, { status: 404 });
+      return NextResponse.json({ success: false, error: "No video found" }, { status: 404 });
     }
 
-    return NextResponse.json({ videoId: data.items[0].id.videoId });
+    return NextResponse.json({ success: true, videoId: data.items[0].id.videoId });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json({ error: `Failed to fetch latest video: ${message}` }, { status: 500 });
+    return NextResponse.json({ success: false, error: `Failed to fetch latest video: ${message}` }, { status: 500 });
   }
 }

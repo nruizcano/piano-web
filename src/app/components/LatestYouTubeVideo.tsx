@@ -6,13 +6,27 @@ import LoadingSpinner from "@/app/components/LoadingSpinner";
 export default function LatestYoutubeVideo() {
   const [videoId, setVideoId] = useState<string | null>(null);
 
+  const getVideoId = async () => {
+    try {
+      const response = await fetch("/api/youtube/latest-video", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success && data.videoId) {
+        setVideoId(data.videoId);
+      } else {
+        console.error(data.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch("/api/youtube/latest-video")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.videoId) setVideoId(data.videoId);
-      })
-      .catch(console.error);
+    getVideoId();
   }, []);
 
   if (!videoId) return <LoadingSpinner />;

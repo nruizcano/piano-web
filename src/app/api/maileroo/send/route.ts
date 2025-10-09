@@ -10,7 +10,7 @@ export async function POST(req: Request) {
 
     if (!API_KEY || !API_URL || !DOMAIN) {
       return NextResponse.json(
-        { error: "Missing API configuration" },
+        { ssuccess: false, error: "Missing Maileroo API configuration" },
         { status: 500 }
       );
     }
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     form.append("reply-to", from);
     form.append("to", to);
     form.append("subject", subject);
-    form.append("html", `<p>From: ${from}</p><p>${message}</p>`);
+    form.append("html", `<p><strong>From: ${from}</strong></p><p>${message}</p>`);
 
     const response = await fetch(API_URL, {
       method: "POST",
@@ -31,15 +31,15 @@ export async function POST(req: Request) {
     if (!response.ok) {
       const errMsg = await response.text();
       return NextResponse.json(
-        { error: errMsg },
+        { success: false, error: errMsg },
         { status: response.status }
       );
     }
 
     const result = await response.json();
-    return NextResponse.json(result);
+    return NextResponse.json({ success: true, result });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json({ error: `Failed to send email: ${message}` }, { status: 500 });
+    return NextResponse.json({ success: false, error: `Failed to send email: ${message}` }, { status: 500 });
   }
 }

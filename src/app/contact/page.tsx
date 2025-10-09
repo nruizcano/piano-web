@@ -1,9 +1,9 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import Link from "next/link";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 
 const emailSchema = z.object({
@@ -43,15 +43,18 @@ export default function ContactPage() {
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send email");
+      if (response.ok && result.success) {
+        toast.success("Email sent successfully!");
+        reset();
+      } else {
+        toast.error(result.error);
+        toast.error("Failed to send email. Please try again.");
       }
-
-      toast.success("Email sent successfully!");
-      reset();
     } catch (error) {
       console.error(error);
-      toast.error("An error occurred while sending the email.");
+      toast.error(
+        "An error occurred while sending the email. Please try again.",
+      );
     }
   };
 
