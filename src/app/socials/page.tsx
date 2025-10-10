@@ -1,19 +1,9 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { ToastContainer, toast } from "react-toastify";
-import { SocialsInfo } from "@/app/types/Socials";
-import { useScreenBreakpoint } from "@/app/hooks/useScreenBreakpoint";
-
-function copyToClipboard(text: string) {
-  navigator.clipboard.writeText(text);
-  toast.info("Copied to clipboard!");
-}
+import { SocialsInfo } from "@/app/models/Socials";
+import CopyToClipboardButton from "@/app/socials/components/CopyToClipboardButton";
 
 export default function SocialsPage() {
-  const isLargeScreen = useScreenBreakpoint(960);
-
   return (
     <div className="flex flex-col min-w-full place-items-center pt-4">
       <h1>Socials</h1>
@@ -22,18 +12,14 @@ export default function SocialsPage() {
           <li
             key={social.name}
             id={social.name.toLowerCase().replaceAll(" ", "-")}
-            className={`gap-4 grid ${
-              isLargeScreen ? "grid-cols-[80px_1fr]" : "grid-cols-[50px_1fr]"
-            }`}
+            className="gap-4 grid grid-cols-[50px_1fr] lg:grid-cols-[80px_1fr]"
           >
             <Image
               src={social.icon}
               alt={social.name}
               height={52}
-              width={52} // Required by Next.js but ignore with w-auto in Tailwind CSS
-              className={`w-auto justify-self-center shadow-custom ${
-                isLargeScreen ? "h-13" : "h-10"
-              }`}
+              width={52}
+              className="w-auto justify-self-center shadow-custom h-10 lg:h-13"
             />
             <div>
               <div className="flex items-end gap-4">
@@ -44,32 +30,17 @@ export default function SocialsPage() {
                   className="group flex flex-col shadow-custom"
                 >
                   <span className="text-xl">{social.name}</span>
-                  {isLargeScreen && (
-                    <span className="text-[var(--foreground-secondary)] italic group-hover:underline">
-                      {social.url}
-                    </span>
-                  )}
+                  <span className="text-[var(--foreground-secondary)] italic group-hover:underline hidden lg:block">
+                    {social.url}
+                  </span>
                 </Link>
-                <button
-                  onClick={() => copyToClipboard(social.url)}
-                  aria-label="Copy to clipboard"
-                  className="!p-[6px] !rounded-md"
-                >
-                  <Image
-                    src="/copy.svg"
-                    alt="Copy"
-                    height={16}
-                    width={16}
-                    className="opacity-60"
-                  />
-                </button>
+                <CopyToClipboardButton text={social.url} />
               </div>
               <p>{social.description}</p>
             </div>
           </li>
         ))}
       </ul>
-      <ToastContainer position="bottom-right" autoClose={2000} />
     </div>
   );
 }

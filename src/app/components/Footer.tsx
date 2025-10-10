@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SocialsInfo } from "@/app/types/Socials";
+import { SocialsInfo } from "@/app/models/Socials";
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
                 src={social.icon}
                 alt={social.name}
                 height={24}
-                width={24} // Required by Next.js but ignore with w-auto in Tailwind CSS
+                width={24}
                 className="h-6 w-auto"
               />
             </Link>

@@ -1,8 +1,4 @@
-import LoadingSpinner from "@/app/components/LoadingSpinner";
-
 export default function YouTubeVideoPlayer({ url }: { url: string }) {
-  if (!url) return <LoadingSpinner />;
-  
   return (
     <iframe
       src={url}

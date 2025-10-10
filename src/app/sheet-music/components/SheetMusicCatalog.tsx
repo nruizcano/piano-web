@@ -1,73 +1,24 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useSheetMusicContext } from "@/app/sheet-music/context/SheetMusicContext";
-import { useFetchSheetMusic } from "@/app/hooks/useFetchSheetMusic";
+import SearchSheetMusicForm from "@/app/sheet-music/components/SearchSheetMusicForm";
 import SheetMusicPreview from "@/app/sheet-music/components/SheetMusicPreview";
 import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
 import LoadingSpinner from "@/app/components/LoadingSpinner";
 
 export default function SheetMusicCatalog() {
-  const { isLoading, isError, errorMessage, setIsLoading } =
+  const { setEndpoint, sheetMusic, isLoading, isError, errorMessage } =
     useSheetMusicContext();
-  const { sheetMusic, setEndpoint } = useFetchSheetMusic("/api/sheet-music");
 
-  const searchSchema = z.object({
-    search: z.string(),
-  });
-
-  type SearchForm = z.infer<typeof searchSchema>;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<SearchForm>({
-    resolver: zodResolver(searchSchema),
-  });
-
-  const onSubmit = async (input: SearchForm) => {
-    setIsLoading(true);
-    if (input.search === "") {
+    useEffect(() => {
       setEndpoint("/api/sheet-music");
-    } else {
-      setEndpoint(`/api/sheet-music/search?q=${encodeURIComponent(input.search)}`);
-    }
-  };
+    }, [setEndpoint]);
 
   return (
     <div className="p-8 bg-[var(--background-secondary)]">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        id="search-sheet-music-form"
-        className="mb-8 inline-flex items-center"
-      >
-        <legend className="sr-only">Search sheet music</legend>
-        <input
-          type="search"
-          placeholder="Search sheet music..."
-          {...register("search")}
-          className="bg-[var(--background)] text-lg py-2 px-4 rounded-l-xs min-w-fit"
-        />
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          aria-label="Search"
-          className="!p-3 !rounded-l-none"
-        >
-          <Image
-            src="/search.svg"
-            alt="Search icon"
-            height={20}
-            width={20}
-            className="opacity-60"
-          />
-        </button>
-      </form>
+      <SearchSheetMusicForm />
       <div id="sheet-music-results">
         {isLoading ? (
           <LoadingSpinner />

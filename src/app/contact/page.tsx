@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { sendEmail } from "@/app/lib/sendEmail";
 import { ToastContainer, toast } from "react-toastify";
 import "@/app/contact/module.css";
 
@@ -30,27 +31,16 @@ export default function ContactPage() {
   });
 
   async function onSubmit(data: EmailForm) {
+    if (!toEmail) {
+      console.error("No destination email provided.");
+      toast.error("Unable to send email.");
+      return;
+    }
+
     try {
-      const response = await fetch("/api/maileroo/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: data.from,
-          to: toEmail,
-          subject: data.subject,
-          message: data.message,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        toast.success("Email sent successfully!");
-        reset();
-      } else {
-        console.error(response.status, result.error);
-        toast.error("Failed to send email. Please try again.");
-      }
+      await sendEmail(data.from, toEmail, data.subject, data.message);
+      toast.success("Email sent successfully!");
+      reset();
     } catch (error) {
       console.error(error);
       toast.error(

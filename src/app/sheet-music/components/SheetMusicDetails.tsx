@@ -1,0 +1,34 @@
+import Link from "next/link";
+import { SheetMusic } from "@/app/sheet-music/types/SheetMusic";
+import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
+import YouTubeVideoPlayer from "@/app/components/YouTubeVideoPlayer";
+
+export default function SheetMusicDetails({
+  sheetMusic,
+}: {
+  sheetMusic: SheetMusic;
+}) {
+  return (
+    <div id="sheet-music-details" className="text-center sm:text-left">
+      <h1 className="!mb-0">{sheetMusic.title}</h1>
+      <h2>{sheetMusic.artist}</h2>
+      <p>Composed by {sheetMusic.composer}.</p>
+      <div className="flex flex-row items-center justify-between sm:justify-normal gap-2 sm:gap-8">
+        <button
+          aria-label="Download sheet music in PDF format"
+          className="w-fit"
+        >
+          <Link href={sheetMusic.file}>Download PDF</Link>
+        </button>
+        <span className="inline-flex gap-2 items-center">
+          <p>Level:</p>
+          <DifficultyFlags difficulty={sheetMusic.difficulty} />
+        </span>
+      </div>
+      {sheetMusic.video && <YouTubeVideoPlayer url={sheetMusic.video} />}
+      {sheetMusic.description && (
+        <p className="text-left">{sheetMusic.description}</p>
+      )}
+    </div>
+  );
+}

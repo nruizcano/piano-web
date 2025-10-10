@@ -17,7 +17,7 @@ export const SocialsInfo: Record<Socials, Props> = {
         name: "YouTube",
         url: "https://www.youtube.com/@nerearuizcano",
         icon: "/socials/youtube.svg",
-        description: "My channel for all things music — performances, covers, updates, and more",
+        description: "My channel for all things music — performances, covers, updates, and more.",
     },
     [Socials.INSTAGRAM]: {
         name: "Instagram",
