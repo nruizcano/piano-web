@@ -1,13 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { ObjectId } from "mongodb";
 import { withDatabase } from "@/app/lib/withDatabase";
 
-interface Params {
-    params: { id: string };
-}
-
-export async function GET(_req: Request, { params }: Params) {
-    const { id } = await params;
+export async function GET(_req: NextRequest,
+    context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
 
     if (!id) {
         return NextResponse.json({ success: false, error: "Missing sheet music ID" }, { status: 400 });
