@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Banner() {
-  // TODO: Change background image
   return (
     <div id="banner" className="relative group">
       <div className="relative">
@@ -10,9 +9,9 @@ export default function Banner() {
           alt="Banner"
           width={1920}
           height={1080}
-          className="h-52 md:h-72 lg:h-96 w-full object-cover overflow-hidden"
+          className="h-72 lg:h-96 w-full object-cover overflow-hidden"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--background-dark)] via-[var(--background-dark)]/70 to-transparent h-full" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--background-dark)] via-[var(--background-dark)]/50 to-transparent h-full" />
       </div>
       <div className="absolute inset-0 flex flex-col items-start justify-center w-full lg:w-5/7 text-white gap-4 px-6 lg:px-16">
         <span className="text-4xl sm:text-5xl md:text-6xl">

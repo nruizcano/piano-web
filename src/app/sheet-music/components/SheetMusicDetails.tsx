@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SheetMusic } from "@/app/sheet-music/types/SheetMusic";
 import { extractYouTubeIdFromUrl } from "@/app/lib/extractYouTubeIdFromUrl";
 import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
@@ -22,7 +23,16 @@ export default function SheetMusicDetails({
           aria-label="Download sheet music in PDF format"
           className="w-fit"
         >
-          <Link href={sheetMusic.file}>Download PDF</Link>
+          <Link href={sheetMusic.file} className="inline-flex gap-2 items-center">
+            <Image
+              src="/file.svg"
+              alt="File icon"
+              height={16}
+              width={16}
+              className="opacity-70"
+            />
+            <span>Download PDF</span>
+          </Link>
         </button>
         <span className="inline-flex gap-2 items-center">
           <p>Level:</p>

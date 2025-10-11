@@ -4,8 +4,8 @@ import { SocialsInfo } from "@/app/models/Socials";
 
 export default function Footer() {
   return (
-    <footer className="row-start-3 flex flex-col min-w-full p-6 gap-4 items-center justify-center bg-[var(--background-dark)]">
-      <p className="text-[#ddd]">© 2025 Nerea Ruiz Cano</p>
+    <footer className="row-start-3 flex flex-col min-w-full p-6 gap-2 items-center justify-center bg-[var(--background-dark)]">
+      <p className="text-[#ddd] !mt-0">© 2025 Nerea Ruiz Cano</p>
       <ul className="flex flex-wrap items-center gap-4">
         {Object.values(SocialsInfo).map((social) => (
           <li
