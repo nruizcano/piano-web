@@ -1,7 +1,7 @@
-export default function YouTubeVideoPlayer({ url }: { url: string }) {
+export default function YouTubeVideoPlayer({ videoId }: { videoId: string }) {
   return (
     <iframe
-      src={url}
+      src={`https://www.youtube.com/embed/${videoId}`}
       title="YouTube video player"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen

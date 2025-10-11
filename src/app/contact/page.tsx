@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "@/app/contact/module.css";
 
 const emailSchema = z.object({
-  from: z.email("Please enter a valid email address."),
+  from: z.string().min(1, "Please enter your name."),
   subject: z.string().min(1, "Please enter a subject."),
   message: z
     .string()
@@ -61,7 +61,7 @@ export default function ContactPage() {
         <fieldset className="flex flex-col gap-8 w-full">
           <div>
             <label htmlFor="from">From</label>
-            <input type="email" id="from" {...register("from")} />
+            <input type="text" id="from" {...register("from")} />
             {errors.from && <p className="errMsg">{errors.from.message}</p>}
           </div>
           <div>

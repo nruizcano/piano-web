@@ -9,9 +9,9 @@ export default function LatestYoutubeVideo() {
 
   return isLoading ? (
     <LoadingSpinner />
-  ) : isError ? (
+  ) : isError || !videoId ? (
     <p className="text-center">Failed to load latest video.</p>
   ) : (
-    <YouTubeVideoPlayer url={`https://www.youtube.com/embed/${videoId}`} />
+    <YouTubeVideoPlayer videoId={videoId} />
   );
 }

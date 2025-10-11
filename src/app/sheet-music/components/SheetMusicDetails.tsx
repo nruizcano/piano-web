@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SheetMusic } from "@/app/sheet-music/types/SheetMusic";
+import { extractYouTubeIdFromUrl } from "@/app/lib/extractYouTubeIdFromUrl";
 import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
 import YouTubeVideoPlayer from "@/app/components/YouTubeVideoPlayer";
 
@@ -8,6 +9,9 @@ export default function SheetMusicDetails({
 }: {
   sheetMusic: SheetMusic;
 }) {
+  let videoId;
+  if (sheetMusic.video) videoId = extractYouTubeIdFromUrl(sheetMusic.video);
+
   return (
     <div id="sheet-music-details" className="text-center sm:text-left">
       <h1 className="!mb-0">{sheetMusic.title}</h1>
@@ -25,7 +29,7 @@ export default function SheetMusicDetails({
           <DifficultyFlags difficulty={sheetMusic.difficulty} />
         </span>
       </div>
-      {sheetMusic.video && <YouTubeVideoPlayer url={sheetMusic.video} />}
+      {videoId && <YouTubeVideoPlayer videoId={videoId} />}
       {sheetMusic.description && (
         <p className="text-left">{sheetMusic.description}</p>
       )}
