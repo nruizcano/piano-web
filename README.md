@@ -2,7 +2,7 @@
 
 Developed with Next.js and designed to showcase my journey as a pianist, share musical performances, and provide a direct contact channel. This website integrates MongoDB for sheet music management, the YouTube API to automatically display my covers, and the Maileroo API for sending messages through the contact form.
 
-[Website](https://piano-web-omega.vercel.app/)
+[Website](https://www.nerearuizcano.me/)
 
 ## Features
 
