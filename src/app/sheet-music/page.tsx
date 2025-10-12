@@ -6,7 +6,7 @@ export default function SheetMusicPage() {
       <h1>Sheet music</h1>
       <section id="page-info" className="page-intro">
         <p>
-          These are all of the sheet music I’ve written for my own arrangements.
+          These are all of the sheet music I’ve written for my original arrangements.
           I’ve always been passionate about music, and I wanted to share my
           creations with the world.
         </p>
