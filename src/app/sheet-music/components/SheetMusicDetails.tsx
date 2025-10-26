@@ -17,7 +17,8 @@ export default function SheetMusicDetails({
     <div id="sheet-music-details" className="text-center sm:text-left">
       <h1 className="!mb-0">{sheetMusic.title}</h1>
       <h2>{sheetMusic.artist}</h2>
-      <p>Composed by {sheetMusic.composer}.</p>
+      <h3>Composed by {sheetMusic.composer}.</h3>
+      {sheetMusic.description && <p>{sheetMusic.description}</p>}
       <div className="flex flex-row items-center justify-between sm:justify-normal gap-2 sm:gap-8">
         <button
           aria-label="Download sheet music in PDF format"
@@ -40,9 +41,17 @@ export default function SheetMusicDetails({
         </span>
       </div>
       {videoId && <YouTubeVideoPlayer videoId={videoId} />}
-      {sheetMusic.description && (
-        <p className="text-left">{sheetMusic.description}</p>
-      )}
+      <div className="text-center bg-[var(--background-secondary)] shadow-lg rounded-md py-4 px-6 mt-4">
+        <h4 className="font-semibold mb-3">
+          Usage Policy for My Piano Arrangements
+        </h4>
+        <hr />
+        <p>
+          You are welcome to use my piano arrangements publicly, as long as you
+          give proper credit. Please clearly and appropriately state that I am
+          the author and that it is my original arrangement.
+        </p>
+      </div>
     </div>
   );
 }
