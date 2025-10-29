@@ -11,5 +11,5 @@
 
 .appear {
   opacity: 0;
-  animation: appear 1.2s ease-in-out forwards;
+  animation: appear 0.7s ease-in-out forwards;
 }
