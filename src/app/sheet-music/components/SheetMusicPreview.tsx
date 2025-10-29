@@ -1,6 +1,7 @@
+import { memo } from "react";
 import Image from "next/image";
 
-export default function SheetMusicPreview({
+function SheetMusicPreview({
   src,
   title,
   artist,
@@ -15,6 +16,7 @@ export default function SheetMusicPreview({
       alt={title + ' ' + artist + ' preview'}
       width={1000}
       height={1000}
+      loading="lazy"
       onError={(e) => {
         const target = e.currentTarget as HTMLImageElement;
         target.src = "/no-image.svg";
@@ -22,3 +24,7 @@ export default function SheetMusicPreview({
     />
   );
 }
+
+const memoSheetMusicPreview = memo(SheetMusicPreview);
+
+export default memoSheetMusicPreview;
