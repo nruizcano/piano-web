@@ -1,12 +1,13 @@
 import Image from "next/image";
+import styles from "@/app/equipment/Equipment.module.css";
 
 export default function DawInfo() {
   return (
-    <article id="reaper">
+    <article id="reaper" className={styles.fadeInUp}>
       <h2>REAPER</h2>
       <h3>DAW</h3>
-      <hr />
-      <div className="article-content">
+      <hr className={styles.hr} />
+      <div className={styles.articleContent}>
         <Image
           src="/equipment/reaper.webp"
           alt="REAPER"

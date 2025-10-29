@@ -1,8 +1,10 @@
+import styles from "@/app/about/components/Chapter.module.css";
+
 export default function Chapter4() {
   return (
-    <section id="reigniting-my-passion-for-piano">
+    <section id="reigniting-my-passion-for-piano" className={styles.fadeInUp}>
       <h2>Reigniting My Passion for Piano</h2>
-      <hr />
+      <hr className={styles.hr} />
       <p>
         A couple of years later, in 2023, that spark started to flicker again. I
         found myself reminiscing about the times I spent playing piano — all the

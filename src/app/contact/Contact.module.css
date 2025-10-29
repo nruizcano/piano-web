@@ -1,0 +1,43 @@
+.inputFild,
+.textareaField {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border: none;
+  width: 100%;
+}
+
+.errMsg {
+  color: #fb2c36;
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn {
+    animation: fade-in 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeInUp {
+    opacity: 0;
+    animation: fade-in-up 0.5s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+}

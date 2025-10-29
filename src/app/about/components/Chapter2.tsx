@@ -1,8 +1,10 @@
+import styles from "@/app/about/components/Chapter.module.css";
+
 export default function Chapter1() {
   return (
-    <section id="discovering-the-piano">
+    <section id="discovering-the-piano" className={styles.fadeInUp}>
       <h2>Discovering the Piano</h2>
-      <hr />
+      <hr className={styles.hr} />
       <p>
         My first real contact with the piano came thanks to my best friend at
         the time, who had just started learning. It immediately caught my

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSheetMusicContext } from "@/app/sheet-music/context/SheetMusicContext";
 import SearchSheetMusicForm from "@/app/sheet-music/components/SearchSheetMusicForm";
 import SheetMusicPreview from "@/app/sheet-music/components/SheetMusicPreview";
-import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
+import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags/DifficultyFlags";
 import LoadingSpinner from "@/app/components/LoadingSpinner";
 
 export default function SheetMusicCatalog() {

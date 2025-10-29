@@ -1,13 +1,13 @@
-import Link from "next/link";
 import Image from "next/image";
 import { SocialsInfo } from "@/app/models/Socials";
-import CopyToClipboardButton from "@/app/socials/components/CopyToClipboardButton";
+import SocialInfoContainer from "@/app/socials/components/SocialInfoContainer";
+import styles from "@/app/socials/Socials.module.css";
 
 export default function SocialsPage() {
   return (
     <div className="flex flex-col min-w-full place-items-center pt-4">
       <h1>Socials</h1>
-      <ul className="flex flex-col gap-12 border-2 border-[var(--background-dark)]/20 bg-[var(--background-secondary)]/35 rounded-xl p-8">
+      <ul className={`flex flex-col gap-12 border-2 border-[var(--background-dark)]/20 bg-[var(--background-secondary)]/35 rounded-xl p-8 ${styles.fadeIn}`}>
         {Object.values(SocialsInfo).map((social) => (
           <li
             key={social.name}
@@ -21,23 +21,7 @@ export default function SocialsPage() {
               width={52}
               className="w-auto justify-self-center shadow-custom h-10 lg:h-13"
             />
-            <div>
-              <div className="flex items-end gap-4">
-                <Link
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col shadow-custom"
-                >
-                  <span className="text-xl">{social.name}</span>
-                  <span className="text-[var(--foreground-secondary)] italic group-hover:underline hidden lg:block">
-                    {social.url}
-                  </span>
-                </Link>
-                <CopyToClipboardButton text={social.url} />
-              </div>
-              <p>{social.description}</p>
-            </div>
+            {SocialInfoContainer(social.url, social.name, social.description)}
           </li>
         ))}
       </ul>

@@ -1,8 +1,10 @@
+import styles from "@/app/about/components/Chapter.module.css";
+
 export default function Chapter3() {
   return (
-    <section id="when-i-let-go-of-piano">
+    <section id="when-i-let-go-of-piano" className={styles.fadeInUp}>
       <h2>When I Let Go of Piano</h2>
-      <hr />
+      <hr className={styles.hr} />
       <p>
         School began to take a heavy toll on me — not just in terms of time, but
         also my energy, confidence, and overall well-being. On top of that,

@@ -1,5 +1,5 @@
-import Banner from "@/app/components/Banner";
-import PinnedPages from "@/app/components/PinnedPages";
+import Banner from "@/app/components/Banner/Banner";
+import PinnedPages from "@/app/components/PinnedPages/PinnedPages";
 import LatestYoutubeVideo from "@/app/components/LatestYouTubeVideo";
 
 export default async function Home() {

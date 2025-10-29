@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SheetMusic } from "@/app/sheet-music/types/SheetMusic";
 import { extractYouTubeIdFromUrl } from "@/app/lib/extractYouTubeIdFromUrl";
-import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags";
+import DifficultyFlags from "@/app/sheet-music/components/DifficultyFlags/DifficultyFlags";
 import YouTubeVideoPlayer from "@/app/components/YouTubeVideoPlayer";
 
 export default function SheetMusicDetails({

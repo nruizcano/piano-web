@@ -1,12 +1,13 @@
 import Image from "next/image";
+import styles from "@/app/equipment/Equipment.module.css";
 
 export default function CameraInfo() {
   return (
-    <article id="canon-eos-750d">
+    <article id="canon-eos-750d" className={styles.fadeInUp}>
       <h2>Canon EOS 750D</h2>
       <h3>Camera</h3>
-      <hr />
-      <div className="article-content">
+      <hr className={styles.hr} />
+      <div className={styles.articleContent}>
         <Image
           src="/equipment/canon-eos-750d.webp"
           alt="Canon EOS 750D"

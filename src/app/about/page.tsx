@@ -3,7 +3,6 @@ import Chapter2 from "@/app/about/components/Chapter2";
 import Chapter3 from "@/app/about/components/Chapter3";
 import Chapter4 from "@/app/about/components/Chapter4";
 import Chapter5 from "@/app/about/components/Chapter5";
-import "@/app/about/module.css";
 
 export default function About() {
   return (

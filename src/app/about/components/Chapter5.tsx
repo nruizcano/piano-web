@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Socials, SocialsInfo } from "@/app/models/Socials";
+import styles from "@/app/about/components/Chapter.module.css";
 
 function SocialLink({ social }: { social: Socials }) {
   return (
@@ -16,9 +17,9 @@ function SocialLink({ social }: { social: Socials }) {
 
 export default function Chapter5() {
   return (
-    <section id="sharing-my-passion">
+    <section id="sharing-my-passion" className={styles.fadeInUp}>
       <h2>Sharing My Passion</h2>
-      <hr />
+      <hr className={styles.hr} />
       <p>
         At the beginning of 2024, I started recording myself and shyly sharing
         videos on my <SocialLink social={Socials.INSTAGRAM} /> account, the

@@ -1,8 +1,10 @@
+import styles from "@/app/about/components/Chapter.module.css";
+
 export default function Chapter1() {
   return (
-    <section id="background">
+    <section id="background" className={styles.fadeInUp}>
       <h2>Background</h2>
-      <hr />
+      <hr className={styles.hr} />
       <p>
         I was born in Málaga, Spain, in 2002, and I’ve lived here my whole life
         — though I’ve always dreamed of moving abroad, currently with Germany in

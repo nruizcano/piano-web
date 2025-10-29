@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NavLinks, NavLinksInfo } from "@/app/models/NavLinks";
+import styles from "@/app/components/PinnedPages/PinnedPages.module.css";
 
 interface PinnedPagesProps {
   navLink: (typeof NavLinksInfo)[keyof typeof NavLinks];
@@ -35,12 +36,12 @@ const PinnedPages: PinnedPagesProps[] = [
 
 export default function HomeInfoCards() {
   return (
-    <div id="pinned-pages" className={`grid grid-cols-1 lg:grid-cols-3 gap-8`}>
+    <div id="pinned-pages" className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {PinnedPages.map((item) => (
         <article
           key={item.navLink.title}
           id={`${item.navLink.title.toLowerCase().replaceAll(" ", "-")}-pinned-page`}
-          className="bg-[var(--background-secondary)] grid grid-rows-[80px_66px_auto_38px] py-9 px-7 text-center justify-items-center"
+          className={`bg-[var(--background-secondary)] grid grid-rows-[80px_66px_auto_38px] py-9 px-7 text-center justify-items-center ${styles.appear}`}
         >
           <Image
             src={item.icon}

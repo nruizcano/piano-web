@@ -1,4 +1,5 @@
 import { Difficulty } from "@/app/sheet-music/types/SheetMusic";
+import styles from "@/app/sheet-music/components/DifficultyFlags/DifficultyFlags.module.css";
 
 export default function DifficultyFlags({
   difficulty,
@@ -18,7 +19,9 @@ export default function DifficultyFlags({
       }`}
     >
       <span
-        className={`text-sm font-semibold px-1 py-[1px] rounded-full bg-clip-text text-transparent animate-gradient ${
+        className={`text-sm font-semibold px-1 py-[1px] rounded-full bg-clip-text text-transparent ${
+          styles.animateGradient
+        } ${
           difficulty === Difficulty.BEGINNER
             ? "bg-[linear-gradient(270deg,#34d399,#21554e,#34d399)]"
             : difficulty === Difficulty.INTERMEDIATE

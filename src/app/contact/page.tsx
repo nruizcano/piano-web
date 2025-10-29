@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { sendEmail } from "@/app/lib/sendEmail";
 import { ToastContainer, toast } from "react-toastify";
-import "@/app/contact/module.css";
+import styles from "@/app/contact/Contact.module.css";
 
 const emailSchema = z.object({
   from: z.string().min(1, "Please enter your name."),
@@ -58,40 +58,40 @@ export default function ContactPage() {
         <legend className="text-4xl sm:text-5xl text-center mb-8 sm:mb-16">
           Contact
         </legend>
-        <fieldset className="flex flex-col gap-8 w-full">
+        <fieldset className={`flex flex-col gap-8 w-full ${styles.fadeIn}`}>
           <div>
             <label htmlFor="from">From</label>
-            <input type="text" id="from" {...register("from")} />
-            {errors.from && <p className="errMsg">{errors.from.message}</p>}
+            <input type="text" id="from" {...register("from")} className={styles.inputFild} />
+            {errors.from && <p className={styles.errMsg}>{errors.from.message}</p>}
           </div>
           <div>
             <label htmlFor="subject">Subject</label>
-            <input type="text" id="subject" {...register("subject")} />
+            <input type="text" id="subject" {...register("subject")} className={styles.inputFild} />
             {errors.subject && (
-              <p className="errMsg">{errors.subject.message}</p>
+              <p className={styles.errMsg}>{errors.subject.message}</p>
             )}
           </div>
           <div>
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
-              className="min-h-40"
+              className={`min-h-40 ${styles.textareaField}`}
               {...register("message")}
             />
             {errors.message && (
-              <p className="errMsg">{errors.message.message}</p>
+              <p className={styles.errMsg}>{errors.message.message}</p>
             )}
           </div>
         </fieldset>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-20 self-end mt-6"
+          className={`w-20 self-end mt-6 ${styles.fadeIn}`}
         >
           {isSubmitting ? "SENDING..." : "SEND"}
         </button>
       </form>
-      <p className="text-center">
+      <p className={`text-center ${styles.fadeInUp}`}>
         You can also reach me directly via email at{" "}
         <Link href={`mailto:${toEmail}`} className="link">
           {toEmail}

@@ -1,12 +1,13 @@
 import Image from "next/image";
+import styles from "@/app/equipment/Equipment.module.css";
 
 export default function PianoInfo() {
   return (
-    <article id="roland-fp30x">
+    <article id="roland-fp30x" className={styles.fadeInUp}>
       <h2>Roland FP-30X</h2>
       <h3>Piano</h3>
-      <hr />
-      <div className="article-content">
+      <hr className={styles.hr} />
+      <div className={styles.articleContent}>
         <Image
           src="/equipment/roland-fp30x.webp"
           alt="Roland FP-30X"

@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SocialsInfo } from "@/app/models/Socials";
+import styles from "@/app/equipment/Equipment.module.css";
 
 export default function SheetMusicEditorInfo() {
   return (
-    <article id="musescore-studio">
+    <article id="musescore-studio" className={styles.fadeInUp}>
       <h2>MuseScore Studio</h2>
       <h3>Sheet Music Editor</h3>
-      <hr />
-      <div className="article-content">
+      <hr className={styles.hr} />
+      <div className={styles.articleContent}>
         <Image
           src="/equipment/musescore-studio.webp"
           alt="MuseScore Studio"

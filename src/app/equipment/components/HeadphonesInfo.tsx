@@ -1,12 +1,13 @@
 import Image from "next/image";
+import styles from "@/app/equipment/Equipment.module.css";
 
 export default function HeadphonesInfo() {
   return (
-    <article id="audio-technica-ath-m50x">
+    <article id="audio-technica-ath-m50x" className={styles.fadeInUp}>
       <h2>Audio Technica ATH-M50X</h2>
       <h3>Headphones</h3>
-      <hr />
-      <div className="article-content">
+      <hr className={styles.hr} />
+      <div className={styles.articleContent}>
         <Image
           src="/equipment/ath-m50x.webp"
           alt="Audio Technica ATH-M50X"

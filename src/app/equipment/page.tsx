@@ -3,7 +3,6 @@ import HeadphonesInfo from "@/app/equipment/components/HeadphonesInfo";
 import SheetMusicEditorInfo from "@/app/equipment/components/SheetMusicEditorInfo";
 import DawInfo from "@/app/equipment/components/DawInfo";
 import CameraInfo from "@/app/equipment/components/CameraInfo";
-import "@/app/equipment/module.css";
 
 export default function Equipment() {
   return (

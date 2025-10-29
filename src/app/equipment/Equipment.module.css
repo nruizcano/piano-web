@@ -1,0 +1,79 @@
+.hr {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (width < 1024px) {
+  .articleContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @layer utilities {
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fadeInUp {
+      opacity: 0;
+      animation: fade-in-up 1s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .articleContent {
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap: 2.75rem;
+  }
+
+  @layer utilities {
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(200px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-200px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .articleContent > *:first-child {
+      opacity: 0;
+      animation: slideInLeft 1s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .articleContent > *:last-child {
+      opacity: 0;
+      animation: slideInRight 1s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+  }
+}
