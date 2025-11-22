@@ -30,11 +30,14 @@ export default function NavBar() {
             >
               <Link
                 href={link.href}
-                className={`font-semibold ${
-                  pathname !== link.href
-                    ? "text-[var(--foreground-secondary)]"
-                    : ""
-                }`}
+                className={`font-semibold ${link.href === "/"
+                    ? pathname !== "/"
+                      ? "text-[var(--foreground-secondary)]"
+                      : ""
+                    : !pathname.includes(link.href)
+                      ? "text-[var(--foreground-secondary)]"
+                      : ""
+                  }`}
               >
                 {link.title.toUpperCase()}
               </Link>

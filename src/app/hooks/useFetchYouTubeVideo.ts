@@ -11,7 +11,7 @@ export function useFetchYouTubeVideo(endpoint: string) {
             setIsLoading(true);
             try {
                 const data = await fetchElem(endpoint);
-                if (!data.videoId) {
+                if (!data.videoId || !data.success) {
                     throw new Error("Failed to fetch YouTube video");
                 }
                 setVideoId(data.videoId);
