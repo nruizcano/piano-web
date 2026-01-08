@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { SocialsInfo } from "@/app/models/Socials";
 import styles from "@/app/equipment/Equipment.module.css";
 
 export default function SheetMusicEditorInfo() {
@@ -19,26 +17,8 @@ export default function SheetMusicEditorInfo() {
         <p>
           To write and edit sheet music, I use MuseScore Studio. I haven’t tried
           other editors, so I can’t really compare, but this one has worked so
-          well for me that I’ve never felt the need to switch. It’s free, easy
-          to use, and integrates seamlessly with the{" "}
-          <Link
-            href={SocialsInfo.MUSESCORE.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link"
-          >
-            {SocialsInfo.MUSESCORE.name}
-          </Link>{" "}
-          platform, where I publish my sheet music (along with a shared{" "}
-          <Link
-            href={SocialsInfo.GOOGLE_DRIVE.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link"
-          >
-            {SocialsInfo.GOOGLE_DRIVE.name} folder
-          </Link>
-          ).
+          well for me that I’ve never felt the need to switch. It’s free and easy
+          to use.
         </p>
       </div>
     </article>

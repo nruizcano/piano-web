@@ -1,7 +1,6 @@
 export enum Socials {
     YOUTUBE = "YOUTUBE",
     INSTAGRAM = "INSTAGRAM",
-    MUSESCORE = "MUSESCORE",
     GOOGLE_DRIVE = "GOOGLE_DRIVE",
 }
 
@@ -24,12 +23,6 @@ export const SocialsInfo: Record<Socials, Props> = {
         url: "https://www.instagram.com/nerea.rc88",
         icon: "/socials/instagram.svg",
         description: "A more personal side of me, featuring snippets of my life and, mostly, my two Malinois — Nala and Liam are the main characters 😅",
-    },
-    [Socials.MUSESCORE]: {
-        name: "MuseScore",
-        url: "https://musescore.com/user/63972640",
-        icon: "/socials/musescore.svg",
-        description: "Where I upload sheet music for my own arrangements.",
     },
     [Socials.GOOGLE_DRIVE]: {
         name: "Google Drive",
