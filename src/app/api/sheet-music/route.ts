@@ -3,7 +3,7 @@ import { withDatabase } from "@/app/lib/withDatabase";
 
 export async function GET() {
     return withDatabase(async (collection) => {
-        const response = await collection.find().toArray();
+        const response = await collection.find().sort({ _id: -1 }).toArray();
 
         if (!response) {
             return NextResponse.json({ success: false, error: "Sheet music not found" }, { status: 404 });
