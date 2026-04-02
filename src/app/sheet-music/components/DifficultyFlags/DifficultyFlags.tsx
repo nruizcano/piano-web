@@ -8,7 +8,7 @@ export default function DifficultyFlags({
 }) {
   return (
     <div
-      className={`inline-flex items-center relative rounded-full min-w-fit px-2 py-[1px] text-sm shadow-sm ${
+      className={`inline-flex items-center relative rounded-full min-w-fit px-2 py-px text-sm shadow-sm ${
         difficulty === Difficulty.BEGINNER
           ? "bg-green-200"
           : difficulty === Difficulty.INTERMEDIATE
@@ -19,7 +19,7 @@ export default function DifficultyFlags({
       }`}
     >
       <span
-        className={`text-sm font-semibold px-1 py-[1px] rounded-full bg-clip-text text-transparent ${
+        className={`text-sm font-semibold px-1 py-px rounded-full bg-clip-text text-transparent ${
           styles.animateGradient
         } ${
           difficulty === Difficulty.BEGINNER

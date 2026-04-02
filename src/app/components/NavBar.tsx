@@ -16,7 +16,7 @@ export default function NavBar() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
-          className="!bg-transparent !p-0"
+          className="bg-transparent! p-0!"
         >
           <Image src="/burger-menu.svg" alt="Menu" width={24} height={24} />
         </button>
@@ -32,10 +32,10 @@ export default function NavBar() {
                 href={link.href}
                 className={`font-semibold ${link.href === "/"
                     ? pathname !== "/"
-                      ? "text-[var(--foreground-secondary)]"
+                      ? "text-(--foreground-secondary)"
                       : ""
                     : !pathname.includes(link.href)
-                      ? "text-[var(--foreground-secondary)]"
+                      ? "text-(--foreground-secondary)"
                       : ""
                   }`}
               >

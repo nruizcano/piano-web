@@ -44,13 +44,13 @@ export default function SearchSheetMusicForm() {
         type="search"
         placeholder="Search sheet music..."
         {...register("search")}
-        className="bg-[var(--background)] text-lg py-2 px-4 rounded-l-xs min-w-fit focus:outline-0"
+        className="bg-background text-lg py-2 px-4 rounded-l-xs w-96 focus:outline-0"
       />
       <button
         type="submit"
         disabled={isSubmitting}
         aria-label="Search"
-        className="!p-3 !rounded-l-none"
+        className="p-3! rounded-l-none!"
       >
         <Image
           src="/search.svg"

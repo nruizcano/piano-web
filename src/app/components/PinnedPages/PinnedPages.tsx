@@ -41,7 +41,7 @@ export default function HomeInfoCards() {
         <article
           key={item.navLink.title}
           id={`${item.navLink.title.toLowerCase().replaceAll(" ", "-")}-pinned-page`}
-          className={`bg-[var(--background-secondary)] grid grid-rows-[80px_66px_auto_38px] py-9 px-7 text-center justify-items-center ${styles.appear}`}
+          className={`bg-(--background-secondary) grid grid-rows-[80px_66px_auto_38px] py-9 px-7 text-center justify-items-center ${styles.appear}`}
         >
           <Image
             src={item.icon}
@@ -50,7 +50,7 @@ export default function HomeInfoCards() {
             height={64}
           />
           <h3>{item.navLink.title}</h3>
-          <p className="text-[var(--foreground-secondary)] pb-5">
+          <p className="text-(--foreground-secondary) pb-5">
             {item.description}
           </p>
           <button aria-label="Navigate to page">

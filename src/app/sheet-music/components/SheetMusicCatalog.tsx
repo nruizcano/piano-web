@@ -17,7 +17,7 @@ export default function SheetMusicCatalog() {
     }, [setEndpoint]);
 
   return (
-    <div className="p-8 bg-[var(--background-secondary)]">
+    <div className="p-8 bg-(--background-secondary)">
       <SearchSheetMusicForm />
       <div id="sheet-music-results">
         {isLoading ? (
@@ -38,9 +38,9 @@ export default function SheetMusicCatalog() {
               >
                 <Link
                   href={`/sheet-music/${sheetMusic._id}`}
-                  className="flex flex-col items-center text-center shadow-md pb-6 rounded-md bg-[var(--background)] hover:shadow-xl hover:scale-105 duration-100"
+                  className="flex flex-col items-center text-center shadow-md pb-6 rounded-md bg-background hover:shadow-xl hover:scale-105 duration-100"
                 >
-                  <div className="flex flex-grow">
+                  <div className="flex grow">
                     <SheetMusicPreview
                       src={sheetMusic.preview}
                       title={sheetMusic.title}

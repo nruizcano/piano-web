@@ -15,7 +15,7 @@ export default function SheetMusicDetails({
 
   return (
     <div id="sheet-music-details" className="text-center sm:text-left">
-      <h1 className="!mb-0">{sheetMusic.title}</h1>
+      <h1 className="mb-0!">{sheetMusic.title}</h1>
       <h2>{sheetMusic.artist}</h2>
       <h3>Composed by {sheetMusic.composer}.</h3>
       {sheetMusic.description && <p>{sheetMusic.description}</p>}
@@ -41,7 +41,7 @@ export default function SheetMusicDetails({
         </span>
       </div>
       {videoId && <YouTubeVideoPlayer videoId={videoId} />}
-      <div className="text-center bg-[var(--background-secondary)] shadow-lg rounded-md py-4 px-6 mt-4">
+      <div className="text-center bg-(--background-secondary) shadow-lg rounded-md py-4 px-6 mt-4">
         <h4 className="font-semibold mb-3">
           Usage Policy for My Piano Arrangements
         </h4>
